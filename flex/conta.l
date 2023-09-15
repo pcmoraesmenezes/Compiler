@@ -15,7 +15,7 @@ int yywrap()
 {
     return 1;
 }
-int main(int argc, char *argv[])
+int main()
 {
     yylex();
     printf("Count= %d\n", count);

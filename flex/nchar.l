@@ -10,6 +10,6 @@
 int yywrap() {return 1; }
 int main(){
     yylex();
-    printf("c = %d w =%d l =%d\n", nchar, nword, nline);
+    printf("c = %d w = %d l = %d\n", nchar, nword, nline);
     return 0;
 }

@@ -362,25 +362,25 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[9] =
     {   0,
-        0,    0,    5,    2,    3,    1,    1,    0
+        0,    0,    5,    2,    3,    1,    2,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
+        1,    1,    1,    1,    1,    1,    1,    1,    2,    3,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    3,    3,    3,
-        3,    3,    3,    3,    3,    3,    3,    1,    1,    1,
-        1,    1,    1,    1,    4,    4,    4,    4,    4,    4,
-        4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
-        4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
-        1,    1,    1,    1,    1,    1,    4,    4,    4,    4,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
 
-        4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
-        4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
-        4,    4,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -397,31 +397,29 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[5] =
+static const YY_CHAR yy_meta[4] =
     {   0,
-        1,    1,    1,    1
+        1,    2,    2
     } ;
 
-static const flex_int16_t yy_base[9] =
+static const flex_int16_t yy_base[10] =
     {   0,
-        0,    0,    7,    8,    8,    2,    0,    8
+        0,    0,    5,    0,    6,    6,    0,    6,    3
     } ;
 
-static const flex_int16_t yy_def[9] =
+static const flex_int16_t yy_def[10] =
     {   0,
-        8,    1,    8,    8,    8,    8,    6,    0
+        8,    1,    8,    9,    8,    8,    9,    0,    8
     } ;
 
-static const flex_int16_t yy_nxt[13] =
+static const flex_int16_t yy_nxt[10] =
     {   0,
-        4,    5,    4,    6,    7,    7,    8,    3,    8,    8,
-        8,    8
+        4,    5,    6,    7,    8,    3,    8,    8,    8
     } ;
 
-static const flex_int16_t yy_chk[13] =
+static const flex_int16_t yy_chk[10] =
     {   0,
-        1,    1,    1,    1,    6,    6,    3,    8,    8,    8,
-        8,    8
+        1,    1,    1,    9,    3,    8,    8,    8,    8
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -438,12 +436,11 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "conta.l"
-#line 4 "conta.l"
-    int count = 0;
-
-#line 446 "<stdout>"
-#line 447 "<stdout>"
+#line 1 "nchar.l"
+#line 2 "nchar.l"
+    int nchar, nline, nword;
+#line 443 "<stdout>"
+#line 444 "<stdout>"
 
 #define INITIAL 0
 
@@ -660,9 +657,9 @@ YY_DECL
 		}
 
 	{
-#line 8 "conta.l"
+#line 5 "nchar.l"
 
-#line 666 "<stdout>"
+#line 663 "<stdout>"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -695,7 +692,7 @@ yy_match:
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 8 );
+		while ( yy_base[yy_current_state] != 6 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -720,27 +717,27 @@ do_action:	/* This label is used only to access EOF actions. */
 			goto yy_find_action;
 
 case 1:
+/* rule 1 can match eol */
 YY_RULE_SETUP
-#line 9 "conta.l"
-{count++; puts(yytext);} /* identificador */
+#line 6 "nchar.l"
+{nline++; nchar++;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 10 "conta.l"
-/* nada */
+#line 7 "nchar.l"
+{nword++; nchar = nchar + yyleng;}
 	YY_BREAK
 case 3:
-/* rule 3 can match eol */
 YY_RULE_SETUP
-#line 11 "conta.l"
-/* nada */
+#line 8 "nchar.l"
+{nchar++;} 
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 13 "conta.l"
+#line 9 "nchar.l"
 ECHO;
 	YY_BREAK
-#line 744 "<stdout>"
+#line 741 "<stdout>"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1745,16 +1742,11 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 13 "conta.l"
+#line 9 "nchar.l"
 
-int yywrap()
-{
-    return 1;
-}
-int main(int argc, char *argv[])
-{
+int yywrap() {return 1; }
+int main(){
     yylex();
-    printf("Count= %d\n", count);
+    printf("c = %d w = %d l = %d\n", nchar, nword, nline);
     return 0;
 }
-
