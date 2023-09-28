@@ -1,0 +1,79 @@
+Gramática
+
+    0 $accept: S $end
+
+    1 S: 'a' S 'c'
+    2  | 'b'
+
+
+Terminais, com as regras onde eles aparecem
+
+    $end (0) 0
+    'a' (97) 1
+    'b' (98) 2
+    'c' (99) 1
+    error (256)
+
+
+Não terminais com as regras onde eles aparecem
+
+    $accept (6)
+        à esquerda: 0
+    S (7)
+        à esquerda: 1 2
+        à direita: 0 1
+
+
+Estado 0
+
+    0 $accept: • S $end
+
+    'a'  deslocar, e ir ao estado 1
+    'b'  deslocar, e ir ao estado 2
+
+    S  ir ao estado 3
+
+
+Estado 1
+
+    1 S: 'a' • S 'c'
+
+    'a'  deslocar, e ir ao estado 1
+    'b'  deslocar, e ir ao estado 2
+
+    S  ir ao estado 4
+
+
+Estado 2
+
+    2 S: 'b' •
+
+    $padrão  reduzir usando a regra 2 (S)
+
+
+Estado 3
+
+    0 $accept: S • $end
+
+    $end  deslocar, e ir ao estado 5
+
+
+Estado 4
+
+    1 S: 'a' S • 'c'
+
+    'c'  deslocar, e ir ao estado 6
+
+
+Estado 5
+
+    0 $accept: S $end •
+
+    $padrão  aceitar
+
+
+Estado 6
+
+    1 S: 'a' S 'c' •
+
+    $padrão  reduzir usando a regra 1 (S)

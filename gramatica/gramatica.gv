@@ -1,0 +1,31 @@
+// Gerado por GNU Bison 3.8.2.
+// Relate erros para <bug-bison@gnu.org>.
+// Site: <https://www.gnu.org/software/bison/>.
+
+digraph "gramatica.y"
+{
+  node [fontname = courier, shape = box, colorscheme = paired6]
+  edge [fontname = courier]
+
+  0 [label="Estado 0\n\l  0 $accept: • S $end\l"]
+  0 -> 1 [style=solid label="'a'"]
+  0 -> 2 [style=solid label="'b'"]
+  0 -> 3 [style=dashed label="S"]
+  1 [label="Estado 1\n\l  1 S: 'a' • S 'c'\l"]
+  1 -> 1 [style=solid label="'a'"]
+  1 -> 2 [style=solid label="'b'"]
+  1 -> 4 [style=dashed label="S"]
+  2 [label="Estado 2\n\l  2 S: 'b' •\l"]
+  2 -> "2R2" [style=solid]
+ "2R2" [label="R2", fillcolor=3, shape=diamond, style=filled]
+  3 [label="Estado 3\n\l  0 $accept: S • $end\l"]
+  3 -> 5 [style=solid label="$end"]
+  4 [label="Estado 4\n\l  1 S: 'a' S • 'c'\l"]
+  4 -> 6 [style=solid label="'c'"]
+  5 [label="Estado 5\n\l  0 $accept: S $end •\l"]
+  5 -> "5R0" [style=solid]
+ "5R0" [label="Acc", fillcolor=1, shape=diamond, style=filled]
+  6 [label="Estado 6\n\l  1 S: 'a' S 'c' •\l"]
+  6 -> "6R1" [style=solid]
+ "6R1" [label="R1", fillcolor=3, shape=diamond, style=filled]
+}
