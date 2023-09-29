@@ -1,9 +1,11 @@
 programa teste
-    inteiro soma total
+    inteiro soma total //variaveis
 inicio
     leia soma
     enquanto soma > 0 faca
         escreva soma
+        /*repetiçaõ
+        quando o valor de a for maior igual a b a repetição para */
         total <- total + soma
         soma <- soma - 1
     fimenquanto
