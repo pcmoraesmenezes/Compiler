@@ -1,14 +1,12 @@
 %{
 #include "sintatico.h"
-void erro (char *s);    
+int yyerror(char *);
 %}
 
 identificador  [a-zA-Z]([a-zA-Z0-9])*
 numero         [0-9]+
 espaco         [ \t\r]+
 novalinha      [\n]
-
-%option noyywrap
 
 %%
 
@@ -54,6 +52,12 @@ F           return T_F;
 {numero}        return T_NUMERO;
 {espaco}        /* nao faz nada */
 {novalinha}     /* nao faz nada */
-.               erro ("LEXICO");
+.              yyerror ("LEXICO");
 
 %%
+int yywrap () {return 1;}
+
+int yyerror (char *s){
+    printf("ERRO: %s\n", s);
+    exit(100);
+}

@@ -2,9 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lexico.c"
+#include <string.h>
 
-void erro(char *);
-int yyerror(char *);
+// void erro(char *);
+// int yyerror(char *);
 %}
 
 %start programa
@@ -58,7 +59,7 @@ cabecalho
     ;
 
 variaveis
-    :
+    : /* vazio */
     | declaracao_variaveis
     ;
 
@@ -137,19 +138,19 @@ termo
 
 %%
 
-void erro (char *s){
-    printf("ERRO: %s\n", s);
-    exit(10);
-}
+// void erro (char *s){
+//     printf("ERRO: %s\n", s);
+//     exit(10);
+// }
 
 // int yyerror(char *s){
 //     erro(s);
 // }
 
-int yyerror(char *s) {
-    fprintf(stderr, "Syntax error near token: %s\n", yytext);
-    exit(1);
-}
+// int yyerror(char *s) {
+//     fprintf(stderr, "Syntax error near token: %s\n", yytext);
+//     exit(1);
+// }
 
 
 int main(void){
