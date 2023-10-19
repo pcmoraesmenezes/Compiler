@@ -1359,9 +1359,15 @@ void erro (char *s){
     exit(10);
 }
 
-int yyerror(char *s){
-    erro(s);
+// int yyerror(char *s){
+//     erro(s);
+// }
+
+int yyerror(char *s) {
+    fprintf(stderr, "Syntax error near token: %s\n", yytext);
+    exit(1);
 }
+
 
 int main(void){
     if (!yyparse())

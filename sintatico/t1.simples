@@ -3,5 +3,5 @@ programa teste1
 inicio
     leia a
     leia b
-    escreva a + 
+    escreva a + b
 fimprograma
