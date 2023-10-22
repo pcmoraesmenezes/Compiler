@@ -4,5 +4,6 @@ programa teste3
 inicio 
     a <- 1
     b <- 2
+    // teste
     a . b
 fimprograma

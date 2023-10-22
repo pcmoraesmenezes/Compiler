@@ -155,5 +155,5 @@ termo
 
 int main(void){
     if (!yyparse())
-        puts("Programa OK! ");
+        printf("Programa OK!\nNum de linhas: %d\n", numLinha );
 }
