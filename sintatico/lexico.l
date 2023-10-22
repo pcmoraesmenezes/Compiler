@@ -1,6 +1,7 @@
 %{
 #include "sintatico.h"
-void erro (char *s);    
+int yyerror(char *);
+int numLinha = 1;
 %}
 
 identificador  [a-zA-Z]([a-zA-Z0-9])*
@@ -8,8 +9,7 @@ numero         [0-9]+
 espaco         [ \t\r]+
 novalinha      [\n]
 
-%option noyywrap
-
+%x coment
 %%
 
 programa    return T_PROGRAMA;
@@ -50,10 +50,22 @@ logico      return T_LOGICO;
 V           return T_V;
 F           return T_F;
 
+"//".*       /* nao faz nada */ 
+"/*"         BEGIN(coment);
+<coment>"*/" BEGIN(INITIAL);
+<coment>.   /* nao faz nada */
+<coment>\n numLinha++;
+
 {identificador} return T_IDENTIF;
 {numero}        return T_NUMERO;
 {espaco}        /* nao faz nada */
-{novalinha}     /* nao faz nada */
-.               erro ("LEXICO");
+{novalinha}     numLinha++;
+.              yyerror ("LEXICO");
 
 %%
+int yywrap () {return 1;}
+
+int yyerror (char *s){
+    printf("Erro na linha #: %d: %s\n", numLinha, s);
+    exit(100);
+}

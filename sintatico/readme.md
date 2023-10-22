@@ -6,7 +6,15 @@ Para executar o analisador sintatico, esteja na mesma pasta que o diretorio `sin
 
 ```bash
 
-make
+make simples
+
+```
+
+Para limpar:
+
+```bash
+
+make limpa
 
 ```
 
