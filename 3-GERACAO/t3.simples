@@ -1,0 +1,8 @@
+programa teste3
+    inteiro a b
+inicio 
+    a <- 1
+    b <- 2
+    // teste
+    a + b
+fimprograma

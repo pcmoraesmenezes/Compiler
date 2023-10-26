@@ -1,0 +1,11 @@
+programa teste1
+    inteiro a b
+inicio
+    leia a /* */
+    /* teasd
+    asdasd
+    asdasd
+    */
+    leia b
+    escreva a + b // teste
+fimprograma
