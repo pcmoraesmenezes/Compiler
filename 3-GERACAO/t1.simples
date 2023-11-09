@@ -1,11 +1,14 @@
-programa teste1
-    inteiro a b
-inicio
-    leia a /* */
-    /* teasd
-    asdasd
-    asdasd
-    */
-    leia b
-    escreva a + b // teste
+programa teste
+/*  Este é um programa exemplo da 
+    linguagem simples */
+    
+inteiro a // variavel a  
+        b // variavel b 
+
+incio
+    leia a
+    enquanto a < 100 faca
+        a <- a * 2
+    fimenquanto
+    escreva a
 fimprograma
