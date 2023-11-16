@@ -60,3 +60,10 @@ inicio
 fimprograma
 
 ```
+
+```bash
+
+./mvs teste1
+```
+
+Esse mvs faz a verificação e implementa o código, substitua teste1 por outro arquivo de entrada para testar.
