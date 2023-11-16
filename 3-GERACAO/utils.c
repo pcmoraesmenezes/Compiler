@@ -25,7 +25,7 @@ int buscaSimbolo(char *s){
         sprintf(msg, "Identificador [%s] não encontrado! ", s);
         yyerror(msg);
     }
-    return 1;
+    return i;
     
 }
 

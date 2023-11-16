@@ -64,7 +64,7 @@ programa
             {
                 int conta = desempilha();
                 if (conta)
-                    fprintf(yyout, "\tDMEN\t%d\n", conta);
+                    fprintf(yyout, "\tDMEM\t%d\n", conta);
             }
             {fprintf(yyout, "\tFIMP\n");}
     ;
