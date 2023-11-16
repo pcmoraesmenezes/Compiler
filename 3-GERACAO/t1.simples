@@ -5,7 +5,7 @@ programa teste
 inteiro a // variavel a  
         b // variavel b 
 
-incio
+inicio
     leia a
     enquanto a < 100 faca
         a <- a * 2

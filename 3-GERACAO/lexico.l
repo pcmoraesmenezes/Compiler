@@ -14,7 +14,7 @@ novalinha    [\n]
 
 %%
 programa          return T_PROGRAMA;
-incio             return T_INICIO;
+inicio             return T_INICIO;
 fimprograma       return T_FIM;
 leia              return T_LEIA;
 escreva           return T_ESCREVA;
