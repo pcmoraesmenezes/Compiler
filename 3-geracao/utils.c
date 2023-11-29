@@ -1,13 +1,22 @@
 // TABELA DE SIMBOLOS
+// criar uma estrutura e operações para manipular uma lista de campos
 
 #define TAM_TAB 100
 
 enum{
     INT,
-    LOG
+    LOG,
+    REG
+};
+
+char nomeTipo[3][4] = {
+    "INT", "LOG", "REG"
 };
 
 
+
+// acrescentar campos na tabela
+// TAM, POS, LISTA DE CAMPOS, ONDE CADA NÓ É ALGO DESSE TIPO: (a, INT, 0,0,1)=> (b, LOG,1,1,1)
 struct elemTabSimbolos {
     char id[100]; // nome do identificador 
     int end; // endereco
@@ -54,7 +63,7 @@ void mostraTabela (){
     for(int i = 0; i < 50; i++)
         printf("-");
     for (int i = 0; i <posTab; i++){
-        printf("\n%30s | %3d | %s", tabSimb[i].id, tabSimb[i].end, tabSimb[i].tip == INT? "INT" : "LOG");
+        printf("\n%30s | %3d | %s", tabSimb[i].id, tabSimb[i].end, nomeTipo[tabSimb[i].tip]);
     }
     puts("");
 }

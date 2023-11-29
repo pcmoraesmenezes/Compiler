@@ -7,6 +7,7 @@
     #include "utils.c"
 int contaVar = 0;
 int rotulo = 0;
+int ehRegistro = 0;
 int tipo;
 %}
 
@@ -41,6 +42,10 @@ int tipo;
 %token T_FECHA
 %token T_LOGICO
 %token T_INTEIRO
+%token T_DEF
+%token T_FIMDEF
+%token T_REGISTRO
+%token T_IDPONTO
 
 %start programa
 
@@ -53,13 +58,14 @@ int tipo;
 %%
 
 programa
-    : cabecalho variaveis 
+    : cabecalho definicoes variaveis 
             {
                 mostraTabela();
                 empilha(contaVar);
                 if (contaVar)
                     fprintf(yyout, "\tAMEM\t%d\n", contaVar);
             }
+
         T_INICIO lista_comandos T_FIM
             {
                 int conta = desempilha();
@@ -73,6 +79,31 @@ cabecalho
     : T_PROGRAMA T_IDENTIF
         {fprintf(yyout, "\tINPP\n");}
     ;
+
+
+
+definicoes
+    : define definicoes
+    | /* vazio */
+    ;
+
+define
+    : T_DEF definicao_campos T_FIMDEF T_IDENTIF
+    ;
+
+
+
+definicao_campos
+    : tipo lista_campos definicao_campos
+    | tipo lista_campos
+    ;
+
+lista_campos 
+    : lista_campos T_IDENTIF
+    | T_IDENTIF
+    ;
+
+
 
 variaveis
     : /*vazio*/
@@ -89,6 +120,8 @@ tipo
         {tipo = LOG;}
     |T_INTEIRO
         {tipo = INT; }
+    | T_REGISTRO T_IDENTIF
+        {tipo = REG;}
     ;
 
 lista_variaveis
@@ -257,13 +290,32 @@ expressao
     | termo
     ;
 
-termo
+expressao_acesso
     : T_IDENTIF
         {
-            int pos = buscaSimbolo (atomo);
-            fprintf(yyout, "\tCRVG\t%d\n", tabSimb[pos].end);
-            empilha(tabSimb[pos].tip);
+            if (ehRegistro) {
+                    empilha(REG);
+            }
+            else{
+                int pos = buscaSimbolo (atomo);
+                fprintf(yyout, "\tCRVG\t%d\n", tabSimb[pos].end);
+                empilha(tabSimb[pos].tip);
+                ehRegistro = 0;
+
+            }
         }
+    | T_IDPONTO
+        {
+            if(!ehRegistro)
+                ehRegistro = 1;
+            empilha(REG);
+        }
+        expressao_acesso
+    ;
+
+
+termo
+    : expressao_acesso
     | T_NUMERO
         {
             fprintf(yyout, "\tCRCT\t%s\n", atomo);

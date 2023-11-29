@@ -14,7 +14,7 @@ novalinha    [\n]
 
 %%
 programa          return T_PROGRAMA;
-inicio             return T_INICIO;
+inicio            return T_INICIO;
 fimprograma       return T_FIM;
 leia              return T_LEIA;
 escreva           return T_ESCREVA;
@@ -42,6 +42,10 @@ inteiro           return T_INTEIRO;
 logico            return T_LOGICO;
 V                 return T_V;
 F                 return T_F;
+def               return T_DEF;
+fimdef            return T_FIMDEF;
+registro          return T_REGISTRO;
+
 
 "//".*            /*nada*/
 "/*"              BEGIN(coment);
@@ -50,6 +54,12 @@ F                 return T_F;
 <coment>\n        numLinha++;
 
 {identificador}   {strcpy(atomo, yytext); return T_IDENTIF;}
+{identificador}"."   {
+                        strcpy(atomo, yytext); 
+                        atomo[strlen(atomo) - 1] = 0;
+                        return T_IDPONTO;
+                        
+                        }
 {numero}          {strcpy(atomo, yytext);return T_NUMERO;}
 {espaco}          /* nada */
 {novalinha}       numLinha++;
