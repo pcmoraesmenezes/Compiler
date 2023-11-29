@@ -1,9 +1,19 @@
-programa teste1
-    inteiro a b c
-inicio
-    leia a
-    enquanto a < 100 faca
-        a <- a * 2
-    fimenquanto
-    escreva a
+programa declararegistro
+    def
+        inteiro a
+        inteiro b
+    fimdef c
+
+    def
+        registro c x
+        inteiro y
+    fimdef D 
+
+    inteiro x 
+    registro d y 
+    logico z
+
+inicio 
+    escreva y.x.a
+    escreva x 
 fimprograma
